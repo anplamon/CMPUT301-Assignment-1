@@ -1,6 +1,9 @@
 <resources>
-    <string name="app_name">anplamon-reflex</string>
+    <string name="app_name">anplamon_reflex</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="menu_title">Buzzer App</string>
+    <string name="reaction_menu_button">Reaction Game</string>
+
 </resources>
