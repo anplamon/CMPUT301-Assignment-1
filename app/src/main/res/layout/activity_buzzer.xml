@@ -11,9 +11,24 @@
         android:textAlignment="center"/>
 
     <Button
+        android:id="@+id/statisticsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/statistics_menu_button"
+        android:layout_alignParentBottom="true"/>
+
+    <Button
+        android:id="@+id/multiplayerButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/multiplayer_menu_button"
+        android:layout_above="@+id/statisticsButton"/>
+
+    <Button
+        android:id="@+id/reactionButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/reaction_menu_button"
-        android:layout_alignParentBottom="true"/>
+        android:layout_above="@+id/multiplayerButton"/>
 
 </RelativeLayout>
