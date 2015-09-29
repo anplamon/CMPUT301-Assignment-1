@@ -32,5 +32,4 @@
         android:layout_alignTop="@+id/playerBar"
         android:layout_alignParentEnd="true" />
 
-
 </RelativeLayout>
