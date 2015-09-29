@@ -9,5 +9,4 @@
     <string name="title_activity_statistics">statistics</string>
     <string name="title_activity_multiplayer">multiplayer</string>
     <string name="multiplayer_menu_title">Choose the number of players</string>
-    <string name="number_of_players">Number Of Players: 2</string>
 </resources>

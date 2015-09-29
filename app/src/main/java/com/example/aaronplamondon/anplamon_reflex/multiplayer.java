@@ -4,13 +4,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
 public class multiplayer extends AppCompatActivity {
     private SeekBar playerBar;
-    private TextView textView;
+    private Button createBuzzerButton;
     private Integer numberOfPlayers;
     private Integer seekBarStep = 33;
 
@@ -18,7 +20,7 @@ public class multiplayer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_multiplayer);
-        textView = (TextView) findViewById(R.id.textView);
+
         playerBar = (SeekBar) findViewById(R.id.playerBar);
         playerBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
             Integer progressValue = 0;
@@ -37,8 +39,16 @@ public class multiplayer extends AppCompatActivity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 progressValue = ((int) Math.round(progressValue / (double) seekBarStep)) * seekBarStep;
-                numberOfPlayers = progressValue + 2;
+                numberOfPlayers = progressValue/33 + 2;
+                createBuzzerButton.setText(Integer.toString(numberOfPlayers) + " Players");
                 seekBar.setProgress(progressValue);
+            }
+        });
+
+        createBuzzerButton = (Button) findViewById(R.id.createBuzzerButton);
+        createBuzzerButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                createPlayerButtons();
             }
         });
     }
@@ -63,5 +73,10 @@ public class multiplayer extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void createPlayerButtons() {
+        //create N instances of player butons, where N is the number of players choosen bu the seekBar
+
     }
 }
