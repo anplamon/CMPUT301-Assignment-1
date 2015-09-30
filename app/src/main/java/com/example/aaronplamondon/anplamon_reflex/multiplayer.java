@@ -3,20 +3,23 @@ package com.example.aaronplamondon.anplamon_reflex;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
-import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class multiplayer extends AppCompatActivity {
     private SeekBar playerBar;
     private Button createBuzzerButton;
-    private Integer numberOfPlayers;
+    private ArrayList<PlayerButton> playerButtons = new ArrayList<>();
+    private Integer numberOfPlayers = 2;
     private Integer seekBarStep = 33;
+    private Integer maxHeight = 440;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,7 @@ public class multiplayer extends AppCompatActivity {
         createBuzzerButton = (Button) findViewById(R.id.createBuzzerButton);
         createBuzzerButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                removePlayerButtons();
                 createPlayerButtons();
             }
         });
@@ -78,10 +82,40 @@ public class multiplayer extends AppCompatActivity {
     }
 
     private void createPlayerButtons() {
-        //create N instances of player butons, where N is the number of players choosen bu the seekBar
-        PlayerButton player1 = new PlayerButton(this, 1, 200);
-        player1.setColour(Color.RED);
-        player1.displayButton();
-        addContentView(player1, player1.getLayoutParameters());
+        //create N instances of player butons, where N is the number of players chosen by the seekBar
+        Integer buttonHeight = Math.round(maxHeight / numberOfPlayers);
+        ArrayList<Integer> colours = createColoursArray();
+
+        for (int i = 1; i <= numberOfPlayers;i++) {
+            PlayerButton playerButton = new PlayerButton(this, i, dpToPx(buttonHeight), (float) dpToPx(70 + buttonHeight * (i - 1)));
+            playerButton.setColour(colours.get(i-1));
+            playerButton.displayButton();
+            addContentView(playerButton, playerButton.getLayoutParameters());
+            playerButtons.add(playerButton);
+        }
+    }
+
+    private void removePlayerButtons() {
+        for (PlayerButton playerButton : playerButtons) {
+            playerButton.stopOnClickListener();
+            playerButton.destroyButton();
+        }
+        playerButtons = new ArrayList<>();
+    }
+
+    private ArrayList<Integer> createColoursArray() {
+        ArrayList<Integer> colours = new ArrayList<>();
+        colours.add(Color.RED);
+        colours.add(Color.CYAN);
+        colours.add(Color.GREEN);
+        colours.add(Color.YELLOW);
+        return colours;
+    }
+
+    // Method from http://stackoverflow.com/questions/8309354/formula-px-to-dp-dp-to-px-android
+    private int dpToPx(int dp) {
+        DisplayMetrics displayMetrics = this.getResources().getDisplayMetrics();
+        int px = Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
+        return px;
     }
 }

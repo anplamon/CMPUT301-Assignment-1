@@ -10,19 +10,22 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.jar.Attributes;
-
 /**
  * Created by aaronplamondon on 2015-09-29.
  */
+
 public class PlayerButton extends Button {
     private Integer playerNumber;
     private RelativeLayout.LayoutParams params;
 
-    public PlayerButton(Context context, Integer playerNumber, Integer height) {
+    public PlayerButton(Context context, Integer playerNumber, Integer height, Float yCoordinate) {
+        //Initialize attributes
         super(context);
         this.playerNumber = playerNumber;
         params = new RelativeLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height);
+
+        //Initialze onther instances of the player button
+        this.setY(yCoordinate);
         this.setButtonLayout();
         this.setButtonText();
         this.setOnClickListener();
@@ -34,10 +37,6 @@ public class PlayerButton extends Button {
 
     public void setButtonLayout() {
         this.setLayoutParams(params);
-    }
-
-    public void setButtonHeight(Integer height) {
-        this.setHeight(height);
     }
 
     public void setButtonText() {
@@ -56,13 +55,17 @@ public class PlayerButton extends Button {
         });
     }
 
+    public void stopOnClickListener() {
+        this.setOnClickListener(null);
+    }
+
     private void openDialogBox() {
         //create a message to pu into a dialog box
         //http://stackoverflow.com/questions/4954130/center-message-in-android-dialog-box
         TextView message = new TextView(this.getContext());
         message.setText("Player " + Integer.toString(playerNumber) + "'s turn.");
         message.setTextSize(24);
-        message.setGravity(Gravity.BOTTOM);
+        message.setGravity(Gravity.CENTER);
 
         //create and display dialog box
         AlertDialog.Builder dialogBox  = new AlertDialog.Builder(this.getContext());
