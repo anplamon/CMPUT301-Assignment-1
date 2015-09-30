@@ -1,7 +1,6 @@
 package com.example.aaronplamondon.anplamon_reflex;
 
 import android.os.Handler;
-import android.view.View;
 import android.widget.Button;
 import java.util.Random;
 

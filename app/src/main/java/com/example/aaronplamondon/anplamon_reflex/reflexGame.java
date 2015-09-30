@@ -9,9 +9,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
+import java.util.ArrayList;
 import java.util.Random;
 
 public class reflexGame extends AppCompatActivity {
+    private static final String fileName = "reflexData.sav";
+    private DataManager dataManager;
     private ReactionTimer reactionTimer;
     private Button reactionButton;
     private Handler handler;
@@ -25,6 +29,9 @@ public class reflexGame extends AppCompatActivity {
         reactionButton = (Button) findViewById(R.id.reactionButton);
         reactionTimer = new ReactionTimer(reactionButton);
         handler = new Handler();
+
+        dataManager = new DataManager(fileName);
+        dataManager.loadFromFile(this);
 
         //Set the reaction button listener
         setReactionButtonListener();
@@ -109,6 +116,8 @@ public class reflexGame extends AppCompatActivity {
             reactionButton.setText("You clicked too soon.");
             resetTimerAndButton(1000);
         } else {
+            dataManager.addValuesToArray(timeDifference);
+            dataManager.saveToFile(this);
             reactionButton.setText("Your time was " + Long.toString(timeDifference) + "ms! \r\n The game will soon reset.");
             resetTimerAndButton(1500);
         }
