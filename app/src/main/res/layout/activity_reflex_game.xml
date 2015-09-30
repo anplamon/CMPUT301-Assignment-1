@@ -11,7 +11,7 @@
         android:id="@+id/reactionButton"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:text=" "
+        android:text=""
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
