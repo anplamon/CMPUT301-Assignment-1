@@ -91,8 +91,8 @@ public class reflexGame extends AppCompatActivity {
             @Override
             public void run() {
                 reactionButton.setText("");
-                reactionTimer.setTimerHandler();
                 setReactionButtonListener();
+                reactionTimer.setTimerHandler();
             }
         }, delayTime);
     }
@@ -116,9 +116,9 @@ public class reflexGame extends AppCompatActivity {
             reactionButton.setText("You clicked too soon.");
             resetTimerAndButton(1000);
         } else {
+            reactionButton.setText("Your time was " + Long.toString(timeDifference) + "ms! \r\n The game will soon reset.");
             dataManager.addValuesToArray(timeDifference);
             dataManager.saveToFile(this);
-            reactionButton.setText("Your time was " + Long.toString(timeDifference) + "ms! \r\n The game will soon reset.");
             resetTimerAndButton(1500);
         }
     }

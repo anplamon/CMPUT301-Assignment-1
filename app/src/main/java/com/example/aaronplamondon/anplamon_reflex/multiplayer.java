@@ -17,14 +17,19 @@ public class multiplayer extends AppCompatActivity {
     private SeekBar playerBar;
     private Button createBuzzerButton;
     private ArrayList<PlayerButton> playerButtons = new ArrayList<>();
+    private ArrayList<Integer> colours;
+    private ArrayList<String> fileNames;
     private Integer numberOfPlayers = 2;
     private Integer seekBarStep = 33;
-    private Integer maxHeight = 440;
+    private Integer maxHeightOfButton = 440;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_multiplayer);
+
+        createColoursArray();
+        createFileNamesArray();
 
         playerBar = (SeekBar) findViewById(R.id.playerBar);
         playerBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
@@ -83,13 +88,15 @@ public class multiplayer extends AppCompatActivity {
 
     private void createPlayerButtons() {
         //create N instances of player butons, where N is the number of players chosen by the seekBar
-        Integer buttonHeight = Math.round(maxHeight / numberOfPlayers);
-        ArrayList<Integer> colours = createColoursArray();
+        Integer buttonHeight = Math.round(maxHeightOfButton / numberOfPlayers);
+        String fileName = fileNames.get(numberOfPlayers - 2);
 
-        for (int i = 1; i <= numberOfPlayers;i++) {
-            PlayerButton playerButton = new PlayerButton(this, i, dpToPx(buttonHeight), (float) dpToPx(70 + buttonHeight * (i - 1)));
-            playerButton.setColour(colours.get(i-1));
+        for (int i = 0; i < numberOfPlayers;i++) {
+            PlayerButton playerButton = new PlayerButton(this, i + 1, fileName);
+            playerButton.initialize(dpToPx(buttonHeight), (float) dpToPx(70 + buttonHeight * (i)));
+            playerButton.setColour(colours.get(i));
             playerButton.displayButton();
+
             addContentView(playerButton, playerButton.getLayoutParameters());
             playerButtons.add(playerButton);
         }
@@ -103,13 +110,19 @@ public class multiplayer extends AppCompatActivity {
         playerButtons = new ArrayList<>();
     }
 
-    private ArrayList<Integer> createColoursArray() {
-        ArrayList<Integer> colours = new ArrayList<>();
+    private void createColoursArray() {
+        colours = new ArrayList<>();
         colours.add(Color.RED);
         colours.add(Color.CYAN);
         colours.add(Color.GREEN);
         colours.add(Color.YELLOW);
-        return colours;
+    }
+
+    private void createFileNamesArray() {
+        fileNames = new ArrayList<>();
+        fileNames.add("2PlayerGame.sav");
+        fileNames.add("3PlayerGame.sav");
+        fileNames.add("4PlayerGame.sav");
     }
 
     // Method from http://stackoverflow.com/questions/8309354/formula-px-to-dp-dp-to-px-android

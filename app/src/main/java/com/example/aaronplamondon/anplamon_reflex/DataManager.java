@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -20,20 +20,27 @@ import com.google.gson.reflect.TypeToken;
  * Created by aaronplamondon on 2015-09-30.
  */
 
+//int occurrences = Collections.frequency(arrayOfValues, playerNumber);
+
 public class DataManager {
     private String fileName;
-    private ArrayList<Long> arrayOfValues = new ArrayList<>();
+    private ArrayList<Number> arrayOfValues = new ArrayList<>();
 
     public DataManager(String fileName) {
         this.fileName = fileName;
     }
 
-    public List<Long> getArrayOfValues() {
+    public ArrayList<Number> getArrayOfValues() {
         return arrayOfValues;
     }
 
-    public void addValuesToArray(Long value) {
-        arrayOfValues.add(value);
+    public void addValuesToArray(Number value) {
+        arrayOfValues.add(0, value);
+    }
+
+    public void clearFile(Context context) {
+        arrayOfValues.clear();
+        this.saveToFile(context);
     }
 
     public void saveToFile(Context context) {
@@ -66,6 +73,7 @@ public class DataManager {
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             arrayOfValues = new ArrayList<>();
+
         } catch (IOException e) {
             // TODO Auto-generated catch block
             throw new RuntimeException(e);

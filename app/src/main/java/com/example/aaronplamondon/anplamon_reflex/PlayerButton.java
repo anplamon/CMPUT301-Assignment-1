@@ -15,13 +15,18 @@ import android.widget.TextView;
  */
 
 public class PlayerButton extends Button {
+    private DataManager dataManager;
     private Integer playerNumber;
     private RelativeLayout.LayoutParams params;
 
-    public PlayerButton(Context context, Integer playerNumber, Integer height, Float yCoordinate) {
+    public PlayerButton(Context context, Integer playerNumber, String fileName) {
         //Initialize attributes
         super(context);
         this.playerNumber = playerNumber;
+        dataManager = new DataManager(fileName);
+    }
+
+    public void initialize(Integer height, Float yCoordinate) {
         params = new RelativeLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height);
 
         //Initialze onther instances of the player button
@@ -51,6 +56,7 @@ public class PlayerButton extends Button {
         this.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 openDialogBox();
+                savePlayerBuzz();
             }
         });
     }
@@ -88,5 +94,11 @@ public class PlayerButton extends Button {
 
     public void destroyButton() {
         this.setVisibility(View.GONE);
+    }
+
+    public void savePlayerBuzz() {
+        dataManager.loadFromFile(this.getContext());
+        dataManager.addValuesToArray(playerNumber);
+        dataManager.saveToFile(this.getContext());
     }
 }
