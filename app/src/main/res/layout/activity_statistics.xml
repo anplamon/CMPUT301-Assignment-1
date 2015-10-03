@@ -6,5 +6,237 @@
     tools:context="com.example.aaronplamondon.anplamon_reflex.statistics">
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Statistics"
+        android:textSize="24sp"
+        android:id="@+id/title"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    //Reaction Time Header
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reaction Time Statistics"
+        android:id="@+id/reactionTitle"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true" />
+
+    // Data type headers for reaction time stats
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Minimum"
+        android:id="@+id/minHeader"
+        android:layout_below="@+id/reactionTitle"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="80dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Maximum"
+        android:id="@+id/maxHeader"
+        android:layout_below="@+id/reactionTitle"
+        android:layout_toRightOf="@+id/minHeader"
+        android:layout_marginRight="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Average"
+        android:id="@+id/meanHeader"
+        android:layout_below="@+id/reactionTitle"
+        android:layout_toRightOf="@+id/maxHeader"
+        android:layout_marginRight="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Median"
+        android:id="@+id/medHeader"
+        android:layout_below="@+id/reactionTitle"
+        android:layout_toRightOf="@+id/meanHeader" />
+
+    //Left Reaction Headers
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Last 10 \r\nReactions"
+        android:id="@+id/lastTenHeader"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/meanHeader"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Last 100 \r\nReactions"
+        android:id="@+id/lastHundredHeader"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/lastTenHeader"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="All Past \r\nReactions"
+        android:id="@+id/allHeader"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/lastHundredHeader"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="12sp"/>
+
+    //Minimum Numbers
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX ms"
+        android:id="@+id/tenMin"
+        android:layout_below="@+id/minHeader"
+        android:layout_marginTop="15dp"
+        android:layout_alignLeft="@id/minHeader"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX ms"
+        android:id="@+id/hunMin"
+        android:layout_below="@+id/tenMin"
+        android:layout_marginTop="25dp"
+        android:layout_alignLeft="@id/minHeader"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX ms"
+        android:id="@+id/allMin"
+        android:layout_below="@+id/hunMin"
+        android:layout_marginTop="25dp"
+        android:layout_alignLeft="@id/minHeader"
+        android:textSize="12sp"/>
+
+    // Max Numbers
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX ms"
+        android:id="@+id/tenMax"
+        android:layout_below="@+id/maxHeader"
+        android:layout_marginTop="15dp"
+        android:layout_alignLeft="@id/maxHeader"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX ms"
+        android:id="@+id/hunMax"
+        android:layout_below="@+id/tenMax"
+        android:layout_marginTop="25dp"
+        android:layout_alignLeft="@id/maxHeader"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX ms"
+        android:id="@+id/allMax"
+        android:layout_below="@+id/hunMax"
+        android:layout_marginTop="25dp"
+        android:layout_alignLeft="@id/maxHeader"
+        android:textSize="12sp"/>
+
+    // Mean Numbers
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX ms"
+        android:id="@+id/tenMean"
+        android:layout_below="@+id/meanHeader"
+        android:layout_marginTop="15dp"
+        android:layout_alignLeft="@id/meanHeader"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX ms"
+        android:id="@+id/hunMean"
+        android:layout_below="@+id/tenMean"
+        android:layout_marginTop="25dp"
+        android:layout_alignLeft="@id/meanHeader"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX ms"
+        android:id="@+id/allMean"
+        android:layout_below="@+id/hunMean"
+        android:layout_marginTop="25dp"
+        android:layout_alignLeft="@id/meanHeader"
+        android:textSize="12sp"/>
+
+    // Median Numbers
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX ms"
+        android:id="@+id/tenMed"
+        android:layout_below="@+id/medHeader"
+        android:layout_marginTop="15dp"
+        android:layout_alignLeft="@id/medHeader"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX ms"
+        android:id="@+id/hunMed"
+        android:layout_below="@+id/tenMed"
+        android:layout_marginTop="25dp"
+        android:layout_alignLeft="@id/medHeader"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX ms"
+        android:id="@+id/allMed"
+        android:layout_below="@+id/hunMed"
+        android:layout_marginTop="25dp"
+        android:layout_alignLeft="@id/medHeader"
+        android:textSize="12sp"/>
+
+    //Gameshow Header
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gameshow Statistics"
+        android:id="@+id/gameshowTitle"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/allHeader"
+        android:layout_centerHorizontal="true" />
+
+    //Clear statistics button
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear Statistics"
+        android:id="@+id/clearButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"/>
 
 </RelativeLayout>

@@ -92,7 +92,7 @@ public class multiplayer extends AppCompatActivity {
         String fileName = fileNames.get(numberOfPlayers - 2);
 
         for (int i = 0; i < numberOfPlayers;i++) {
-            PlayerButton playerButton = new PlayerButton(this, i + 1, fileName);
+            PlayerButton playerButton = new PlayerButton(this, (long) i + 1, fileName);
             playerButton.initialize(dpToPx(buttonHeight), (float) dpToPx(70 + buttonHeight * (i)));
             playerButton.setColour(colours.get(i));
             playerButton.displayButton();

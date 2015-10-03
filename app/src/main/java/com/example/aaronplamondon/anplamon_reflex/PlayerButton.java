@@ -16,14 +16,14 @@ import android.widget.TextView;
 
 public class PlayerButton extends Button {
     private DataManager dataManager;
-    private Integer playerNumber;
+    private Long playerNumber;
     private RelativeLayout.LayoutParams params;
 
-    public PlayerButton(Context context, Integer playerNumber, String fileName) {
+    public PlayerButton(Context context, Long playerNumber, String fileName) {
         //Initialize attributes
         super(context);
         this.playerNumber = playerNumber;
-        dataManager = new DataManager(fileName);
+        dataManager = new DataManager(context, fileName);
     }
 
     public void initialize(Integer height, Float yCoordinate) {
@@ -45,7 +45,7 @@ public class PlayerButton extends Button {
     }
 
     public void setButtonText() {
-        this.setText("Player " + Integer.toString(playerNumber));
+        this.setText("Player " + Long.toString(playerNumber));
     }
 
     public RelativeLayout.LayoutParams getLayoutParameters() {
@@ -69,7 +69,7 @@ public class PlayerButton extends Button {
         //create a message to pu into a dialog box
         //http://stackoverflow.com/questions/4954130/center-message-in-android-dialog-box
         TextView message = new TextView(this.getContext());
-        message.setText("Player " + Integer.toString(playerNumber) + "'s turn.");
+        message.setText("Player " + Long.toString(playerNumber) + "'s turn.");
         message.setTextSize(24);
         message.setGravity(Gravity.CENTER);
 
@@ -97,8 +97,8 @@ public class PlayerButton extends Button {
     }
 
     public void savePlayerBuzz() {
-        dataManager.loadFromFile(this.getContext());
+        dataManager.loadFromFile();
         dataManager.addValuesToArray(playerNumber);
-        dataManager.saveToFile(this.getContext());
+        dataManager.saveToFile();
     }
 }

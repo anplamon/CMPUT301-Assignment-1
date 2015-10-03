@@ -30,8 +30,8 @@ public class reflexGame extends AppCompatActivity {
         reactionTimer = new ReactionTimer(reactionButton);
         handler = new Handler();
 
-        dataManager = new DataManager(fileName);
-        dataManager.loadFromFile(this);
+        dataManager = new DataManager(this, fileName);
+        dataManager.loadFromFile();
 
         //Set the reaction button listener
         setReactionButtonListener();
@@ -118,7 +118,7 @@ public class reflexGame extends AppCompatActivity {
         } else {
             reactionButton.setText("Your time was " + Long.toString(timeDifference) + "ms! \r\n The game will soon reset.");
             dataManager.addValuesToArray(timeDifference);
-            dataManager.saveToFile(this);
+            dataManager.saveToFile();
             resetTimerAndButton(1500);
         }
     }

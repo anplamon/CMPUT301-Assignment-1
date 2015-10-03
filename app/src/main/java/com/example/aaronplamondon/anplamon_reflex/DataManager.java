@@ -11,7 +11,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Collections;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -23,27 +22,29 @@ import com.google.gson.reflect.TypeToken;
 //int occurrences = Collections.frequency(arrayOfValues, playerNumber);
 
 public class DataManager {
+    private Context context;
     private String fileName;
-    private ArrayList<Number> arrayOfValues = new ArrayList<>();
+    private ArrayList<Long> arrayOfValues = new ArrayList<>();
 
-    public DataManager(String fileName) {
+    public DataManager(Context context, String fileName) {
+        this.context = context;
         this.fileName = fileName;
     }
 
-    public ArrayList<Number> getArrayOfValues() {
+    public ArrayList<Long> getArrayOfValues() {
         return arrayOfValues;
     }
 
-    public void addValuesToArray(Number value) {
+    public void addValuesToArray(Long value) {
         arrayOfValues.add(0, value);
     }
 
-    public void clearFile(Context context) {
+    public void clearFile() {
         arrayOfValues.clear();
-        this.saveToFile(context);
+        this.saveToFile();
     }
 
-    public void saveToFile(Context context) {
+    public void saveToFile() {
         try {
             FileOutputStream fos = context.openFileOutput(fileName, 0);
             OutputStreamWriter writer = new OutputStreamWriter(fos);
@@ -60,14 +61,14 @@ public class DataManager {
         }
     }
 
-    public void loadFromFile(Context context) {
+    public void loadFromFile() {
         try {
             FileInputStream fis = context.openFileInput(fileName);
             BufferedReader in = new BufferedReader(new InputStreamReader(fis));
             Gson gson = new Gson();
 
             // Following line based on https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/Gson.html
-            Type listType = new TypeToken<ArrayList<Integer>>() {}.getType();
+            Type listType = new TypeToken<ArrayList<Long>>() {}.getType();
             arrayOfValues = gson.fromJson(in, listType);
 
         } catch (FileNotFoundException e) {
