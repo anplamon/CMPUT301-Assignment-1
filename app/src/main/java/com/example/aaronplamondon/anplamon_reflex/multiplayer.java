@@ -1,3 +1,22 @@
+/**********************************************
+ This file is part of anplamon-reflex.
+
+ anplamon-reflex is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ anplamon-reflex is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ Copyright (c) 2015 Aaron Plamondon
+
+ You should have received a copy of the GNU General Public License
+ along with anplamon-reflex.  If not, see <http://www.gnu.org/licenses/>.
+ **********************************************/
+
 package com.example.aaronplamondon.anplamon_reflex;
 
 import android.graphics.Color;
@@ -35,8 +54,8 @@ public class multiplayer extends AppCompatActivity {
         playerBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
             Integer progressValue = 0;
 
+            // Code from stack overflow from user jimpanzer
             @Override
-            //on progress method from http://stackoverflow.com/questions/16272053/how-to-increment-seek-bar-value
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 progressValue = progress;
             }
@@ -125,8 +144,9 @@ public class multiplayer extends AppCompatActivity {
         fileNames.add("4PlayerGame.sav");
     }
 
-    // Method from http://stackoverflow.com/questions/8309354/formula-px-to-dp-dp-to-px-android
+    // Code from stack overflow from user Bachi
     private int dpToPx(int dp) {
+        // Method to convert dp to pixel
         DisplayMetrics displayMetrics = this.getResources().getDisplayMetrics();
         int px = Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
         return px;

@@ -1,3 +1,22 @@
+/**********************************************
+ This file is part of anplamon-reflex.
+
+ anplamon-reflex is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ anplamon-reflex is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ Copyright (c) 2015 Aaron Plamondon
+
+ You should have received a copy of the GNU General Public License
+ along with anplamon-reflex.  If not, see <http://www.gnu.org/licenses/>.
+ **********************************************/
+
 package com.example.aaronplamondon.anplamon_reflex;
 
 import android.app.AlertDialog;
@@ -124,8 +143,8 @@ public class statistics extends AppCompatActivity {
         fourPG.add((TextView) findViewById(R.id.fourPGplayer4));
     }
 
-    //http://stackoverflow.com/questions/2478517/how-to-display-a-yes-no-dialog-box-in-android
     public void clearButtonDialog() {
+        // Yes No Alert box from stack overflow from user Steve Haley
         DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -142,7 +161,7 @@ public class statistics extends AppCompatActivity {
         };
 
         //Create a message for the dialog box so it can be centered.
-        //http://stackoverflow.com/questions/4954130/center-message-in-android-dialog-box
+        // Code for creating a message box in an alert box from stack overflow from user Zelimir
         TextView message = new TextView(this);
         message.setText("Are you sure?");
         message.setTextSize(24);
@@ -213,8 +232,8 @@ public class statistics extends AppCompatActivity {
         fourPG.get(3).setText(statisticsCalculator.numberOfBuzzes(4L, fourPlayerDataManager) + " buzzes");
     }
 
-    //http://stackoverflow.com/questions/28546703/how-to-code-using-android-studio-to-send-an-email
     public void sendEmail() {
+        // Code from stack overflow from user ɥʇᴉɾuɐɹ
         Log.i("Send email", "");
 
         String[] TO = {"someone@gmail.com"};

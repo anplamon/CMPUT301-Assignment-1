@@ -1,3 +1,22 @@
+/**********************************************
+ This file is part of anplamon-reflex.
+
+ anplamon-reflex is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ anplamon-reflex is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ Copyright (c) 2015 Aaron Plamondon
+
+ You should have received a copy of the GNU General Public License
+ along with anplamon-reflex.  If not, see <http://www.gnu.org/licenses/>.
+ **********************************************/
+
 package com.example.aaronplamondon.anplamon_reflex;
 
 import android.app.AlertDialog;
@@ -67,7 +86,7 @@ public class PlayerButton extends Button {
 
     private void openDialogBox() {
         //create a message to pu into a dialog box
-        //http://stackoverflow.com/questions/4954130/center-message-in-android-dialog-box
+        // Code for creating a message box in an alert box from stack overflow from user Zelimir
         TextView message = new TextView(this.getContext());
         message.setText("Player " + Long.toString(playerNumber) + "'s turn.");
         message.setTextSize(24);
