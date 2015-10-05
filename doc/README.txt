@@ -17,7 +17,7 @@ You should have received a copy of the GNU General Public License
 along with anplamon-reflex.  If not, see <http://www.gnu.org/licenses/>.
 
 Video Demo:
-
+Located in the doc folder.
 
 How To Use:
 The app is comprised of there major parts; The first part is a reaction based button pressing game, the second is a gameshow buzzer mode, and the third is a statistics page which displays all of the stats from the first two parts. 
