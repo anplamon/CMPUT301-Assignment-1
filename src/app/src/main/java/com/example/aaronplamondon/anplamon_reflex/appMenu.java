@@ -27,6 +27,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+/*
+Displays a menu consisting of three buttons. Each button will open up a new activity
+related to the button. The Buttons will open the statistics activuty, the reaction
+game activity and the gameshowbuzeer activity.
+ */
+
 public class appMenu extends AppCompatActivity {
 
     @Override
@@ -36,12 +42,15 @@ public class appMenu extends AppCompatActivity {
 
 
         // Code from stack overflow from user Nic007
+        // Open the statictics activity when pressed
         Button statisticsButton= (Button) findViewById(R.id.statisticsButton);
         statisticsButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startActivity(new Intent(appMenu.this, statistics.class));
             }
         });
+
+        // Open the gameshow activity when pressed
         Button multiplayerButton= (Button) findViewById(R.id.multiplayerButton);
         multiplayerButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -49,6 +58,7 @@ public class appMenu extends AppCompatActivity {
             }
         });
 
+        // Open the reaction game activity when pressed
         Button reactionButton= (Button) findViewById(R.id.reactionButton);
         reactionButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

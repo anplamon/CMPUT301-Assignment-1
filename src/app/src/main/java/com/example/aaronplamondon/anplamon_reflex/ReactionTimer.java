@@ -27,6 +27,17 @@ import java.util.Random;
  * Created by aaronplamondon on 2015-09-30.
  */
 
+/*
+The reaction timer has two main functions.
+1) It sets a delay for the reaction game between 10-2000ms before the user presses the
+button
+2) Times the users reaction time between when they are allowed to press the button and
+when they press the button.
+
+There is a problem with on pause. The problem is when the user pauses the game the timer
+will keep running.
+ */
+
 public class ReactionTimer {
     private Button reactionButton;
     private Handler timerHandler;

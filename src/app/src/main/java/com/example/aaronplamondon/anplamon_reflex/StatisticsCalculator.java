@@ -25,6 +25,13 @@ import java.util.Collections;
 /**
  * Created by aaronplamondon on 2015-10-02.
  */
+
+/*
+Calculatet the mean, median, max, min, and numer of instances of a player
+number in a passed in data manager's arrayOfValues. Each function will
+calculate only the number of values required.
+ */
+
 public class StatisticsCalculator {
 
     public String calculateMin(Integer numberOfValues, DataManager dataManager) {
@@ -104,7 +111,7 @@ public class StatisticsCalculator {
 
     public String numberOfBuzzes(Long playerNumber, DataManager dataManager) {
         ArrayList<Long> arrayOfValues = dataManager.getArrayOfValues();
-        int occurrences = Collections.frequency(arrayOfValues, playerNumber);
+        Integer occurrences = Collections.frequency(arrayOfValues, playerNumber);
         return Integer.toString(occurrences);
     }
 

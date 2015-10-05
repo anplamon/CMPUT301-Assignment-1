@@ -36,6 +36,14 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/*
+Display the statistics for the reactin game and gameshow buzzers.
+Reaction game statistics consist of the minimum, maximum, mean, and median reaction
+times for the users past 10, past 100, and all reaction times. Gameshow statistics
+will display the number of time a player clicked a button for each game mode. Game
+modes are determined by the number of players playing the game.
+ */
+
 public class statistics extends AppCompatActivity {
     private DataManager reactionDataManager;
     private DataManager twoPlayerDataManager;
@@ -114,6 +122,7 @@ public class statistics extends AppCompatActivity {
     }
 
     private void createArrays() {
+        //Create arrays of text views.
         minReactions.add((TextView) findViewById(R.id.tenMin));
         minReactions.add((TextView) findViewById(R.id.hunMin));
         minReactions.add((TextView) findViewById(R.id.allMin));
@@ -233,6 +242,7 @@ public class statistics extends AppCompatActivity {
     }
 
     public void sendEmail(String message) {
+        // create and send email
         // Code from stack overflow from user ɥʇᴉɾuɐɹ
         Log.i("Send email", "");
 
@@ -257,6 +267,7 @@ public class statistics extends AppCompatActivity {
     }
 
     private String statisticsMessage() {
+        //create email message
         String message = "Reaction Time Statistics \r\n";
 
         message += "Last 10 Reactions: Minimum: " + minReactions.get(0).getText()

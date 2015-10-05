@@ -38,6 +38,13 @@ import com.google.gson.reflect.TypeToken;
  * Created by aaronplamondon on 2015-09-30.
  */
 
+
+/*
+The data manager is used to load, save, and clear data from a file. It first loads data
+in from filename and stores it in its arrayOfValues. New values can be added and removed
+from this array. Once data has been finished adding then the array is resaved to the
+fileName. The data manager only works for one file at a time.
+ */
 public class DataManager {
     private Context context;
     private String fileName;

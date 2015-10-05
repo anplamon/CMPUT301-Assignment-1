@@ -32,6 +32,12 @@ import android.widget.Button;
 import java.util.ArrayList;
 import java.util.Random;
 
+/*
+Reaction based game where the user waits between 10-2000ms before the button
+tells the user to click it. their reaction time is recorded and displayed on
+the button.
+ */
+
 public class reflexGame extends AppCompatActivity {
     private static final String fileName = "reflexData.sav";
     private DataManager dataManager;
@@ -122,6 +128,11 @@ public class reflexGame extends AppCompatActivity {
     }
 
     private void checkReaction() {
+        //Check the users reaction time. If the start time is 0 or time difference
+        // is negative then the user pressed the button too early so it will complain
+        // and restart the game after 1 second, otherwise it will display the reaction
+        // time and save it in the data manager.
+
         reactionTimer.removeTimerHandler();
         reactionButton.setOnClickListener(null);
         Long timeDifference = reactionTimer.getReactionTime();

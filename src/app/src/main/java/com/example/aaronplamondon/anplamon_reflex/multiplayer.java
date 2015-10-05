@@ -32,6 +32,17 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 
 import java.util.ArrayList;
 
+/*
+multiplayer class generate player buttons for the gmeshow mode. First the user will pick
+the number of players using the seekBar which autojumps to the ends and middle of the seekBar.
+These points represent player numbers 2, 3 and 4. Once player numbers are chosen, player
+buttons are built and displayed on the screen. They will also be added to an array list to
+be destroyed if the user chooses a new number of player buttons.
+
+AlertDialog might close and not reappear on the screen when onPause is called. This will
+have to be fized in later implementations.
+ */
+
 public class multiplayer extends AppCompatActivity {
     private SeekBar playerBar;
     private Button createBuzzerButton;
@@ -67,6 +78,8 @@ public class multiplayer extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+                // On stopping, it will calculate the closest step in which it can jump too.
+                // The steps are the exact middle and the two ends.
                 progressValue = ((int) Math.round(progressValue / (double) seekBarStep)) * seekBarStep;
                 numberOfPlayers = progressValue/33 + 2;
                 createBuzzerButton.setText(Integer.toString(numberOfPlayers) + " Players");
@@ -122,6 +135,7 @@ public class multiplayer extends AppCompatActivity {
     }
 
     private void removePlayerButtons() {
+        // Remove player button sin order to destroy old onClickListeners
         for (PlayerButton playerButton : playerButtons) {
             playerButton.stopOnClickListener();
             playerButton.destroyButton();
@@ -130,6 +144,7 @@ public class multiplayer extends AppCompatActivity {
     }
 
     private void createColoursArray() {
+        //Player Button Colours
         colours = new ArrayList<>();
         colours.add(Color.RED);
         colours.add(Color.CYAN);
@@ -138,6 +153,7 @@ public class multiplayer extends AppCompatActivity {
     }
 
     private void createFileNamesArray() {
+        //Create array of all save file names for the data managers
         fileNames = new ArrayList<>();
         fileNames.add("2PlayerGame.sav");
         fileNames.add("3PlayerGame.sav");

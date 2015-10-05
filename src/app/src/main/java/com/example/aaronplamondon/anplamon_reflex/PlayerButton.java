@@ -33,6 +33,12 @@ import android.widget.TextView;
  * Created by aaronplamondon on 2015-09-29.
  */
 
+/*
+A generic player button for the gameshow activity. It is given a player number.
+When clicked it will display its player number and record that number in the
+passed in data manager.
+ */
+
 public class PlayerButton extends Button {
     private DataManager dataManager;
     private Long playerNumber;
@@ -48,7 +54,7 @@ public class PlayerButton extends Button {
     public void initialize(Integer height, Float yCoordinate) {
         params = new RelativeLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height);
 
-        //Initialze onther instances of the player button
+        //Initialize other instances of the player button
         this.setY(yCoordinate);
         this.setButtonLayout();
         this.setButtonText();
