@@ -42,7 +42,6 @@ public class appMenu extends AppCompatActivity {
                 startActivity(new Intent(appMenu.this, statistics.class));
             }
         });
-
         Button multiplayerButton= (Button) findViewById(R.id.multiplayerButton);
         multiplayerButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

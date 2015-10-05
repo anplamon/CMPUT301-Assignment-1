@@ -6,35 +6,35 @@
         jumboMode="false"
         revision="23.0.1"
         sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="/Users/aaronplamondon/AndroidStudioProjects/anplamon-reflex/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-63c5234acb6abfbaa8938dc54d11b76b38b9f490.jar" />
+        <dex dex="/Users/aaronplamondon/AndroidStudioProjects/anplamon-reflex/src/app/build/intermediates/pre-dexed/release/support-annotations-23.0.1-63c5234acb6abfbaa8938dc54d11b76b38b9f490.jar" />
     </item>
     <item
         jar="/Users/aaronplamondon/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
-        <dex dex="/Users/aaronplamondon/AndroidStudioProjects/anplamon-reflex/app/build/intermediates/pre-dexed/debug/gson-2.3.1-578ae3e140c7ca434ed00bc34ec56195d89a119b.jar" />
+        <dex dex="/Users/aaronplamondon/AndroidStudioProjects/anplamon-reflex/src/app/build/intermediates/pre-dexed/release/gson-2.3.1-578ae3e140c7ca434ed00bc34ec56195d89a119b.jar" />
     </item>
     <item
-        jar="/Users/aaronplamondon/AndroidStudioProjects/anplamon-reflex/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="/Users/aaronplamondon/AndroidStudioProjects/anplamon-reflex/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-b55ff8a9cbeab304a08a4f0e92e4abeddda5b79e.jar" />
-    </item>
-    <item
-        jar="/Users/aaronplamondon/AndroidStudioProjects/anplamon-reflex/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="/Users/aaronplamondon/AndroidStudioProjects/anplamon-reflex/app/build/intermediates/pre-dexed/debug/classes-6c7854752a0b58e3ce0174def85a4597f79d6b68.jar" />
-    </item>
-    <item
-        jar="/Users/aaronplamondon/AndroidStudioProjects/anplamon-reflex/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jar="/Users/aaronplamondon/AndroidStudioProjects/anplamon-reflex/src/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="/Users/aaronplamondon/AndroidStudioProjects/anplamon-reflex/app/build/intermediates/pre-dexed/debug/classes-f449860cdcdbc09e90bcf897f5558aa338213a24.jar" />
+        <dex dex="/Users/aaronplamondon/AndroidStudioProjects/anplamon-reflex/src/app/build/intermediates/pre-dexed/release/classes-4614c22fdc65382edfd4f10cb0d1daea451800d8.jar" />
+    </item>
+    <item
+        jar="/Users/aaronplamondon/AndroidStudioProjects/anplamon-reflex/src/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="/Users/aaronplamondon/AndroidStudioProjects/anplamon-reflex/src/app/build/intermediates/pre-dexed/release/classes-610b7b43f6b0ada3037840b5ef016737ed55995d.jar" />
+    </item>
+    <item
+        jar="/Users/aaronplamondon/AndroidStudioProjects/anplamon-reflex/src/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="/Users/aaronplamondon/AndroidStudioProjects/anplamon-reflex/src/app/build/intermediates/pre-dexed/release/internal_impl-23.0.1-e7358b8b3d7041c1e7292f738a2b27c26ae46ed2.jar" />
     </item>
 
 </items>

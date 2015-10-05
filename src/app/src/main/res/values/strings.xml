@@ -5,8 +5,8 @@
     <string name="reaction_menu_button">Reaction Game</string>
     <string name="multiplayer_menu_button">Gameshow Buzzers</string>
     <string name="statistics_menu_button">Statistics</string>
-    <string name="title_activity_reflex_game">reflexGame</string>
-    <string name="title_activity_statistics">statistics</string>
-    <string name="title_activity_multiplayer">multiplayer</string>
+    <string name="title_activity_reflex_game">Reaction Game</string>
+    <string name="title_activity_statistics">Statistics</string>
+    <string name="title_activity_multiplayer">Gameshow Buzzers</string>
     <string name="multiplayer_menu_title">Choose the number of players</string>
 </resources>
