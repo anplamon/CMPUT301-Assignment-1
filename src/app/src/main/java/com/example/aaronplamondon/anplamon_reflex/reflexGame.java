@@ -53,7 +53,7 @@ public class reflexGame extends AppCompatActivity {
         dataManager.loadFromFile();
 
         //Set the reaction button listener
-        setReactionButtonListener();
+        setTimerAndButton();
 
         //Set and display instruction dialog box
         createInstructionDialog();
@@ -105,13 +105,13 @@ public class reflexGame extends AppCompatActivity {
             @Override
             public void run() {
                 reactionButton.setText("");
-                setReactionButtonListener();
+                setTimerAndButton();
                 reactionTimer.setTimerHandler();
             }
         }, delayTime);
     }
 
-    public void setReactionButtonListener() {
+    private void setTimerAndButton() {
         //Set the reaction button listener
         reactionButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

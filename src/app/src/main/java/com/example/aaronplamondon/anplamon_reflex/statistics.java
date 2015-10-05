@@ -82,7 +82,7 @@ public class statistics extends AppCompatActivity {
         emailButton = (Button) findViewById(R.id.emailButton);
         emailButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                sendEmail();
+                sendEmail(statisticsMessage());
             }
         });
 
@@ -232,7 +232,7 @@ public class statistics extends AppCompatActivity {
         fourPG.get(3).setText(statisticsCalculator.numberOfBuzzes(4L, fourPlayerDataManager) + " buzzes");
     }
 
-    public void sendEmail() {
+    public void sendEmail(String message) {
         // Code from stack overflow from user ɥʇᴉɾuɐɹ
         Log.i("Send email", "");
 
@@ -244,7 +244,7 @@ public class statistics extends AppCompatActivity {
 
         emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Email Statistics.");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, statisticsMessage());
+        emailIntent.putExtra(Intent.EXTRA_TEXT, message);
 
         try {
             startActivity(Intent.createChooser(emailIntent, "Send mail..."));
@@ -256,7 +256,7 @@ public class statistics extends AppCompatActivity {
         }
     }
 
-    public String statisticsMessage() {
+    private String statisticsMessage() {
         String message = "Reaction Time Statistics \r\n";
 
         message += "Last 10 Reactions: Minimum: " + minReactions.get(0).getText()
