@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">anplamon_reflex</string>
     <string name="action_settings">Settings</string>
-    <string name="menu_title">Super Fun Buzzer Game Extreme!</string>
+    <string name="menu_title">The Reaction Buzzer App!</string>
     <string name="reaction_menu_button">Reaction Game</string>
-    <string name="multiplayer_menu_button">Multiplayer Buzzers</string>
+    <string name="multiplayer_menu_button">Gameshow Buzzers</string>
     <string name="statistics_menu_button">Statistics</string>
     <string name="title_activity_reflex_game">reflexGame</string>
     <string name="title_activity_statistics">statistics</string>

@@ -2,18 +2,20 @@ package com.example.aaronplamondon.anplamon_reflex;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 public class statistics extends AppCompatActivity {
     private DataManager reactionDataManager;
@@ -25,8 +27,12 @@ public class statistics extends AppCompatActivity {
     private ArrayList<TextView> maxReactions = new ArrayList<>();
     private ArrayList<TextView> meanReactions = new ArrayList<>();
     private ArrayList<TextView> medReactions = new ArrayList<>();
+    private ArrayList<TextView> twoPG = new ArrayList<>();
+    private ArrayList<TextView> threePG = new ArrayList<>();
+    private ArrayList<TextView> fourPG = new ArrayList<>();
 
     private Button clearButton;
+    private Button emailButton;
 
     private StatisticsCalculator statisticsCalculator;
 
@@ -45,7 +51,7 @@ public class statistics extends AppCompatActivity {
         threePlayerDataManager.loadFromFile();
         fourPlayerDataManager.loadFromFile();
 
-        createReactionTimeArrays();
+        createArrays();
 
         clearButton = (Button) findViewById(R.id.clearButton);
         clearButton.setOnClickListener(new View.OnClickListener() {
@@ -54,8 +60,15 @@ public class statistics extends AppCompatActivity {
             }
         });
 
+        emailButton = (Button) findViewById(R.id.emailButton);
+        emailButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                sendEmail();
+            }
+        });
+
         statisticsCalculator = new StatisticsCalculator();
-        calculateAndPrintStatistics(reactionDataManager);
+        calculateAndPrintStatistics();
 
     }
 
@@ -81,7 +94,7 @@ public class statistics extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void createReactionTimeArrays() {
+    private void createArrays() {
         minReactions.add((TextView) findViewById(R.id.tenMin));
         minReactions.add((TextView) findViewById(R.id.hunMin));
         minReactions.add((TextView) findViewById(R.id.allMin));
@@ -97,6 +110,18 @@ public class statistics extends AppCompatActivity {
         medReactions.add((TextView) findViewById(R.id.tenMed));
         medReactions.add((TextView) findViewById(R.id.hunMed));
         medReactions.add((TextView) findViewById(R.id.allMed));
+
+        twoPG.add((TextView) findViewById(R.id.twoPGplayer1));
+        twoPG.add((TextView) findViewById(R.id.twoPGplayer2));
+
+        threePG.add((TextView) findViewById(R.id.threePGplayer1));
+        threePG.add((TextView) findViewById(R.id.threePGplayer2));
+        threePG.add((TextView) findViewById(R.id.threePGplayer3));
+
+        fourPG.add((TextView) findViewById(R.id.fourPGplayer1));
+        fourPG.add((TextView) findViewById(R.id.fourPGplayer2));
+        fourPG.add((TextView) findViewById(R.id.fourPGplayer3));
+        fourPG.add((TextView) findViewById(R.id.fourPGplayer4));
     }
 
     //http://stackoverflow.com/questions/2478517/how-to-display-a-yes-no-dialog-box-in-android
@@ -131,19 +156,31 @@ public class statistics extends AppCompatActivity {
     public void clearStatisticsData() {
         //Clear the text views
         for (TextView textView : minReactions){
-            textView.setText("");
+            textView.setText("No Data");
         }
 
         for (TextView textView : maxReactions){
-            textView.setText("");
+            textView.setText("No Data");
         }
 
         for (TextView textView : meanReactions){
-            textView.setText("");
+            textView.setText("No Data");
         }
 
         for (TextView textView : medReactions){
-            textView.setText("");
+            textView.setText("No Data");
+        }
+
+        for (TextView textView : twoPG) {
+            textView.setText("0 Buzzes");
+        }
+
+        for (TextView textView : threePG) {
+            textView.setText("0 Buzzes");
+        }
+
+        for (TextView textView : fourPG) {
+            textView.setText("0 Buzzes");
         }
 
         //Clear the actual data in each file.
@@ -153,15 +190,86 @@ public class statistics extends AppCompatActivity {
         fourPlayerDataManager.clearFile();
     }
 
-    public void calculateAndPrintStatistics(DataManager dataManager) {
-        int[] numberOfValuesArray = {10, 100, dataManager.getArrayOfValues().size()};
+    public void calculateAndPrintStatistics() {
+        int[] numberOfValuesArray = {10, 100, reactionDataManager.getArrayOfValues().size()};
 
         for (int i=0; i<3; i++) {
-            minReactions.get(i).setText(statisticsCalculator.calculateMin(numberOfValuesArray[i], dataManager) + "ms");
-            maxReactions.get(i).setText(statisticsCalculator.calculateMax(numberOfValuesArray[i], dataManager) + "ms");
-            meanReactions.get(i).setText(statisticsCalculator.calculateMean(numberOfValuesArray[i], dataManager) + "ms");
-            medReactions.get(i).setText(statisticsCalculator.calculateMedian(numberOfValuesArray[i], dataManager) + "ms");
+            minReactions.get(i).setText(statisticsCalculator.calculateMin(numberOfValuesArray[i], reactionDataManager));
+            maxReactions.get(i).setText(statisticsCalculator.calculateMax(numberOfValuesArray[i], reactionDataManager));
+            meanReactions.get(i).setText(statisticsCalculator.calculateMean(numberOfValuesArray[i], reactionDataManager));
+            medReactions.get(i).setText(statisticsCalculator.calculateMedian(numberOfValuesArray[i], reactionDataManager));
         }
+
+        twoPG.get(0).setText(statisticsCalculator.numberOfBuzzes(1L, twoPlayerDataManager) + " buzzes");
+        twoPG.get(1).setText(statisticsCalculator.numberOfBuzzes(2L, twoPlayerDataManager) + " buzzes");
+
+        threePG.get(0).setText(statisticsCalculator.numberOfBuzzes(1L, threePlayerDataManager) + " buzzes");
+        threePG.get(1).setText(statisticsCalculator.numberOfBuzzes(2L, threePlayerDataManager) + " buzzes");
+        threePG.get(2).setText(statisticsCalculator.numberOfBuzzes(3L, threePlayerDataManager) + " buzzes");
+
+        fourPG.get(0).setText(statisticsCalculator.numberOfBuzzes(1L, fourPlayerDataManager) + " buzzes");
+        fourPG.get(1).setText(statisticsCalculator.numberOfBuzzes(2L, fourPlayerDataManager) + " buzzes");
+        fourPG.get(2).setText(statisticsCalculator.numberOfBuzzes(3L, fourPlayerDataManager) + " buzzes");
+        fourPG.get(3).setText(statisticsCalculator.numberOfBuzzes(4L, fourPlayerDataManager) + " buzzes");
+    }
+
+    //http://stackoverflow.com/questions/28546703/how-to-code-using-android-studio-to-send-an-email
+    public void sendEmail() {
+        Log.i("Send email", "");
+
+        String[] TO = {"someone@gmail.com"};
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setType("text/plain");
+
+
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Email Statistics.");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, statisticsMessage());
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            finish();
+            Log.i("Finished sending email", "");
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(this,
+                    "There is no email client installed.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public String statisticsMessage() {
+        String message = "Reaction Time Statistics \r\n";
+
+        message += "Last 10 Reactions: Minimum: " + minReactions.get(0).getText()
+                + " Maximum: " + maxReactions.get(0).getText()
+                + " Mean: " + meanReactions.get(0).getText()
+                + " Median: " + medReactions.get(0).getText() + "\r\n";
+
+        message += "Last 100 Reactions: Minimum: " + minReactions.get(1).getText()
+                + " Maximum: " + maxReactions.get(1).getText()
+                + " Mean: " + meanReactions.get(1).getText()
+                + " Median: " + medReactions.get(1).getText() + "\r\n";
+
+        message += "All Reactions: Minimum: " + minReactions.get(2).getText()
+                + " Maximum: " + maxReactions.get(2).getText()
+                + " Mean: " + meanReactions.get(2).getText()
+                + " Median: " + medReactions.get(2).getText() + "\r\n";
+
+        message += "\r\n Gameshow Buzzer Statistics \r\n";
+
+        message += "Two Player Buzzer Statistics: Player 1: " + twoPG.get(0).getText()
+                + " Player 2: " + twoPG.get(1).getText() + "\r\n";
+
+        message += "Three Player Buzzer Statistics: Player 1: " + threePG.get(0).getText()
+                + " Player 2: " + threePG.get(1).getText()
+                + " Player 3: " + threePG.get(2).getText() + "\r\n";
+
+        message += "Four Player Buzzer Statistics: Player 1: " + fourPG.get(0).getText()
+                + " Player 2: " + fourPG.get(1).getText()
+                + " Player 3: " + fourPG.get(2).getText()
+                + " Player 4: " + fourPG.get(3).getText() + "\r\n";
+
+        return message;
     }
 
 }

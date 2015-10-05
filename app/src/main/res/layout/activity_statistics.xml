@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:text="Reaction Time Statistics"
         android:id="@+id/reactionTitle"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_below="@+id/title"
         android:layout_centerHorizontal="true" />
 
@@ -32,6 +32,7 @@
         android:text="Minimum"
         android:id="@+id/minHeader"
         android:layout_below="@+id/reactionTitle"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="80dp"/>
 
@@ -41,6 +42,7 @@
         android:text="Maximum"
         android:id="@+id/maxHeader"
         android:layout_below="@+id/reactionTitle"
+        android:layout_marginTop="5dp"
         android:layout_toRightOf="@+id/minHeader"
         android:layout_marginRight="15dp" />
 
@@ -50,6 +52,7 @@
         android:text="Average"
         android:id="@+id/meanHeader"
         android:layout_below="@+id/reactionTitle"
+        android:layout_marginTop="5dp"
         android:layout_toRightOf="@+id/maxHeader"
         android:layout_marginRight="15dp"/>
 
@@ -59,6 +62,7 @@
         android:text="Median"
         android:id="@+id/medHeader"
         android:layout_below="@+id/reactionTitle"
+        android:layout_marginTop="5dp"
         android:layout_toRightOf="@+id/meanHeader" />
 
     //Left Reaction Headers
@@ -223,11 +227,178 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gameshow Statistics"
+        android:text="Gameshow Buzz Count Statistics"
         android:id="@+id/gameshowTitle"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_below="@+id/allHeader"
         android:layout_centerHorizontal="true" />
+
+    //Left gameshow headers
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2 Player \r\nGame"
+        android:id="@+id/twoPlayerHeader"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/player1Header"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3 Player \r\nGame"
+        android:id="@+id/threePlayerHeader"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/twoPlayerHeader"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4 Player \r\nGame"
+        android:id="@+id/fourPlayerHeader"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/threePlayerHeader"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="12sp"/>
+
+    // Data type headers for reaction time stats
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player 1"
+        android:id="@+id/player1Header"
+        android:layout_below="@+id/gameshowTitle"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="70dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player 2"
+        android:id="@+id/player2Header"
+        android:layout_below="@+id/gameshowTitle"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/player1Header"
+        android:layout_marginRight="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player 3"
+        android:id="@+id/player3Header"
+        android:layout_below="@+id/gameshowTitle"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/player2Header"
+        android:layout_marginRight="25dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player 4"
+        android:id="@+id/player4Header"
+        android:layout_below="@+id/gameshowTitle"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/player3Header" />
+
+    //Player 2 Game textviews
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX Buzzes"
+        android:id="@+id/twoPGplayer1"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/player1Header"
+        android:layout_alignLeft="@id/player1Header"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX Buzzes"
+        android:id="@+id/twoPGplayer2"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/player2Header"
+        android:layout_alignLeft="@id/player2Header"
+        android:textSize="12sp"/>
+
+    //Player 3 Game textviews
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX Buzzes"
+        android:id="@+id/threePGplayer1"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/twoPGplayer1"
+        android:layout_alignLeft="@id/player1Header"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX Buzzes"
+        android:id="@+id/threePGplayer2"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/twoPGplayer2"
+        android:layout_alignLeft="@id/player2Header"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX Buzzes"
+        android:id="@+id/threePGplayer3"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/twoPGplayer2"
+        android:layout_alignLeft="@id/player3Header"
+        android:textSize="12sp"/>
+
+    //Player 4 Game textviews
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX Buzzes"
+        android:id="@+id/fourPGplayer1"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/threePGplayer1"
+        android:layout_alignLeft="@id/player1Header"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX Buzzes"
+        android:id="@+id/fourPGplayer2"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/threePGplayer2"
+        android:layout_alignLeft="@id/player2Header"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX Buzzes"
+        android:id="@+id/fourPGplayer3"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/threePGplayer2"
+        android:layout_alignLeft="@id/player3Header"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="XXX Buzzes"
+        android:id="@+id/fourPGplayer4"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/threePGplayer3"
+        android:layout_alignLeft="@id/player4Header"
+        android:textSize="12sp"/>
 
     //Clear statistics button
     <Button
@@ -236,6 +407,16 @@
         android:text="Clear Statistics"
         android:id="@+id/clearButton"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"/>
+
+    //Email Button
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="E-mail Statistics"
+        android:id="@+id/emailButton"
+        android:layout_above="@id/clearButton"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"/>
 

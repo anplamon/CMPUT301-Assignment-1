@@ -13,17 +13,17 @@ public class StatisticsCalculator {
         ArrayList<Long> subList;
         Long minimumNumber = Long.MAX_VALUE;
 
-        if (arrayOfValues.size() == 0) { return ""; }
+        if (arrayOfValues.size() == 0) { return "No Data"; }
 
         // Change the number of values if the number of values needed is > the array size
         if (numberOfValues > arrayOfValues.size()) { numberOfValues = arrayOfValues.size(); }
-        subList = new ArrayList<>(arrayOfValues.subList(0,numberOfValues-1));
+        subList = new ArrayList<>(arrayOfValues.subList(0,numberOfValues));
 
         for (long value: subList) {
             if(value < minimumNumber) { minimumNumber = value;}
         }
 
-        return Long.toString(minimumNumber);
+        return Long.toString(minimumNumber) + "ms";
     }
 
     public String calculateMax(Integer numberOfValues, DataManager dataManager) {
@@ -31,17 +31,17 @@ public class StatisticsCalculator {
         ArrayList<Long> subList;
         Long maximumNumber = 0L;
 
-        if (arrayOfValues.size() == 0) { return ""; }
+        if (arrayOfValues.size() == 0) { return "No Data"; }
 
         // Change the number of values if the number of values needed is > the array size
         if (numberOfValues > arrayOfValues.size()) { numberOfValues = arrayOfValues.size(); }
-        subList = new ArrayList<>(arrayOfValues.subList(0,numberOfValues-1));
+        subList = new ArrayList<>(arrayOfValues.subList(0,numberOfValues));
 
         for (long value: subList) {
             if(value > maximumNumber) { maximumNumber = value;}
         }
 
-        return Long.toString(maximumNumber);
+        return Long.toString(maximumNumber) + "ms";
     }
 
     public String calculateMedian(Integer numberOfValues, DataManager dataManager) {
@@ -49,7 +49,7 @@ public class StatisticsCalculator {
         ArrayList<Long> subList;
         Long medianNumber;
 
-        if (arrayOfValues.size() == 0) { return ""; }
+        if (arrayOfValues.size() == 0) { return "No Data"; }
 
         // Change the number of values if the number of values needed is > the array size
         if (numberOfValues > arrayOfValues.size()) { numberOfValues = arrayOfValues.size(); }
@@ -62,7 +62,7 @@ public class StatisticsCalculator {
             medianNumber = subList.get(subList.size() / 2);
         }
 
-        return Long.toString(medianNumber);
+        return Long.toString(medianNumber) + "ms";
     }
 
     public String calculateMean(Integer numberOfValues, DataManager dataManager) {
@@ -70,18 +70,23 @@ public class StatisticsCalculator {
         ArrayList<Long> subList;
         Long meanNumber = 0L;
 
-        if (arrayOfValues.size() == 0) { return ""; }
+        if (arrayOfValues.size() == 0) { return "No Data"; }
 
         // Change the number of values if the number of values needed is > the array size
         if (numberOfValues > arrayOfValues.size()) { numberOfValues = arrayOfValues.size(); }
         subList = new ArrayList<>(arrayOfValues.subList(0,numberOfValues));
-        System.out.println("size: " + subList.size());
+
         for (long value : subList) {
-            System.out.println("value: " + value);
             meanNumber += value;
         }
 
-        return Long.toString(meanNumber/numberOfValues);
+        return Long.toString(meanNumber/numberOfValues) + "ms";
+    }
+
+    public String numberOfBuzzes(Long playerNumber, DataManager dataManager) {
+        ArrayList<Long> arrayOfValues = dataManager.getArrayOfValues();
+        int occurrences = Collections.frequency(arrayOfValues, playerNumber);
+        return Integer.toString(occurrences);
     }
 
 }

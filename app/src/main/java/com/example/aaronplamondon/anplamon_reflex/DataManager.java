@@ -19,8 +19,6 @@ import com.google.gson.reflect.TypeToken;
  * Created by aaronplamondon on 2015-09-30.
  */
 
-//int occurrences = Collections.frequency(arrayOfValues, playerNumber);
-
 public class DataManager {
     private Context context;
     private String fileName;

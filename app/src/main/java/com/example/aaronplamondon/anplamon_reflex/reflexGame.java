@@ -62,11 +62,6 @@ public class reflexGame extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
     private void createInstructionDialog() {
         //Initailize an instructions dialog box and display it to the user.
         AlertDialog.Builder dialogBox  = new AlertDialog.Builder(this);
